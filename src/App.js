@@ -1,22 +1,12 @@
 
 import { useState } from 'react';
 import './App.css';
-import About from './component/About';
+// import About from './component/About';
 import Navbar from './component/Navbar';
 import Textform from './component/Textform';
 import Alert from './component/Alert';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
 
-} from "react-router-dom";
-// import ColorPicker from './component/ColorPicker';
 
-// let props = {
-//   title:"Text Utility",
-//   firstPage:45,
-// }
 function App() {
 const [alert,setAlert] = useState(null);
 const showAlert = (message,type) =>{
@@ -57,31 +47,12 @@ const toggleMode =()=>{
   return setMode('dark')
  }
 }
-
   return (  <>
- {/* <Nav {...props// spread Operator
-}/> */}
- {/* <Navbar title={65} firstPage="Homepage"/> */}
- <Router>
- <Navbar title="Text Utils" aboutComp="About" mode={mode} toggleMode={toggleMode}/>
- <Alert alert={alert} onClose = {onCloseHandler}/>
-
-
-  <Routes>
-    <Route path="/" element={<Textform textformHeading="ENIGMA TEXT EDITOR" mode={mode} />} />
-    {/* path matches partial matching, "/user" and "user/guide" it will render user even if we're rendering user/guide path
-      for resolving this occurance we can use "exact" keyword wit path
-    
-    */
-    }
-    <Route exact path="/about" element={<About />} />
-  </Routes>
-</Router>
-
-
+<Navbar title="Text Utils" aboutComp="About" mode={mode} toggleMode={toggleMode}/>
+<Alert alert={alert} onClose = {onCloseHandler}/>
+<Textform textformHeading="ENIGMA TEXT EDITOR" mode={mode} />
 
     </>
   );
 }
 export default App;
-//App.js Ends
